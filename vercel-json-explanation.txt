@@ -1,0 +1,23 @@
+{
+  // Menggunakan konfigurasi Vercel versi terbaru
+  // yang mendukung serverless functions untuk backend seperti Express
+  "version": 2,
+
+  // Menentukan file utama aplikasi (app.js)
+  // dan menjalankannya menggunakan runtime Node.js bawaan Vercel
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+
+  // Mengarahkan semua request ke berbagai endpoint
+  // agar tetap masuk ke app.js dan diproses oleh Express
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ]
+}
